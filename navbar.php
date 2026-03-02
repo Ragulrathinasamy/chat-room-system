@@ -3,8 +3,7 @@
 		
 
 		<ul class="nav navbar-nav">
-			<li><a href="index.php"><span class="glyphicon glyphicon-list"></span> Chat Rooms</a></li>
-			<li><a href="user.php"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+			<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Lobby</a></li>
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">

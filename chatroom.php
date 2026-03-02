@@ -10,12 +10,14 @@
 ?>
 <body>
 <?php include('navbar.php'); ?>
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
+		<?php include('mychat.php'); ?>
 		<?php include('room.php'); ?>
 	</div>
 </div>
 <?php include('room_modal.php'); ?>
+<?php include('out_modal.php'); ?>
 <?php include('modal.php'); ?>
 
 <script src="../js/jquery.dataTables.min.js"></script>
@@ -23,7 +25,17 @@
 <script src="../js/dataTables.responsive.js"></script>
 <script>
 $(document).ready(function(){
-
+	
+	$('#myChatRoom').DataTable({
+	"sDom": '<"row view-filter"<"col-sm-12"<"pull-left"l><"pull-right"f><"clearfix">>>t<"row view-pager"<"col-sm-12"<"text-center"ip>>>',
+	"bLengthChange": false,
+	"bInfo": false,
+	"bPaginate": true,
+	"bFilter": false,
+	"bSort": false,
+	"pageLength": 8
+	});
+	
 	displayChat();
 	
 		$(document).on('click', '#send_msg', function(){

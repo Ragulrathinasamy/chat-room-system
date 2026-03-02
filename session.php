@@ -10,7 +10,7 @@
 	$sq=mysqli_query($conn,"select * from `user` where userid='".$_SESSION['id']."'");
 	$srow=mysqli_fetch_array($sq);
 		
-	if ($srow['access']!=1){
+	if ($srow['access']!=2){
 		header('location:../');
 		exit();
 	}

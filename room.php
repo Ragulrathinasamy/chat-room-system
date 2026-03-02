@@ -1,13 +1,7 @@
-		<div class="col-lg-12">
+		<div class="col-lg-8">
             <div class="panel panel-default" style="height:50px;">
-				<span style="font-size:18px; margin-left:10px; position:relative; top:13px;"><strong>Chat Room: <?php echo $chatrow['chat_name']; ?></strong></span>
-				<div class="pull-right" style="margin-right:10px; margin-top:7px;">
-					<span id="user_details" style="font-size:18px; position:relative; top:2px;"><strong>Members: </strong><span class="badge"><?php echo mysqli_num_rows($cmem); ?></span></span>
-					<a href="#add_member" data-toggle="modal" class="btn btn-primary">Add Member</a>
-					<a href="#delete_room" data-toggle="modal" class="btn btn-danger">Delete Room</a>
-					<a href="index.php" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back</a>
-				</div>
-				<div class="showme hidden" style="position: absolute; left:570px; top:20px;">
+				<span style="font-size:18px; margin-left:10px; position:relative; top:13px;"><strong><span  id="user_details"><span class="glyphicon glyphicon-user"></span><span class="badge"><?php echo mysqli_num_rows($cmem); ?></span></span> <?php echo $chatrow['chat_name']; ?></strong></span>
+				<div class="showme hidden" style="position: absolute; left:-120px; top:20px;">
 					<div class="well">
 						<strong>Room Member/s:</strong>
 						<div style="height: 10px;"></div>
@@ -34,6 +28,23 @@
 					?>
 						
 					</div>
+				</div>
+				<div class="pull-right" style="margin-right:10px; margin-top:7px;">
+					<?php
+						if ($chatrow['userid']==$_SESSION['id']){
+							?>
+							<a href="index.php" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Lobby</a>
+							<a href="#delete_room" data-toggle="modal" class="btn btn-danger">Delete Room</a>
+							<a href="#add_member" data-toggle="modal" class="btn btn-primary">Add Member</a>
+							<?php
+						}
+						else{
+							?>
+							<a href="index.php" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Lobby</a>
+							<a href="#leave_room" data-toggle="modal" class="btn btn-warning">Leave Room</a>
+							<?php
+						}
+					?>
 				</div>
 			</div>
 			<div>
